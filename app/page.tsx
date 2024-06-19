@@ -18,9 +18,11 @@ export default function Home() {
             font.className
           )}
         >
-          🔐 Auth
+          Medical Roomate Network
         </h1>
-        <p className="text-white text-lg">A simple authentication service</p>
+        <p className="text-white text-lg">
+          Save money on residency and fellowship interviews
+        </p>
         <div>
           {/* This will be a modal login component: */}
           {/* <LoginButton mode="modal" asChild>

@@ -4,18 +4,10 @@ import { db } from "./lib/db";
 import authConfig from "@/auth.config";
 import { getUserById } from "./data/user";
 import { type Session } from "next-auth";
-// import { JWT } from "next-auth/jwt";
 import { JWT } from "@auth/core/jwt";
 import { UserRole } from "@prisma/client";
 import { getTwoFactorConfirmationByUserId } from "./data/two-factor-confirmation";
 import { getAccountByUserId } from "@/data/accout";
-// declare module "@auth/core" {
-//   interface Session {
-//     user: {
-//       role: "ADMIN" | "USER";
-//     } & DefaultSession["user"];
-//   }
-// }
 
 export const {
   handlers: { GET, POST },

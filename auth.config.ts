@@ -3,7 +3,6 @@ import Credentials from "next-auth/providers/credentials";
 import { LoginSchema } from "./schemas";
 import { getUserByEmail } from "./data/user";
 import bcrypt from "bcryptjs";
-import Github from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 
 //This file triggers the middleware. We need this because prisma is not compatible with the edge
@@ -12,10 +11,6 @@ export default {
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
-    Github({
-      clientId: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
     Credentials({
       async authorize(credentials) {
