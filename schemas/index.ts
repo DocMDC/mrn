@@ -71,14 +71,23 @@ export const RegisterSchema = z.object({
   }),
 });
 
-export const InterviewSchema = z.object({
-  hospital: z.string(),
-  startDate: z.optional(
-    z.date().min(new Date("1900-01-01"), {
-      message: "date required",
-    })
-  ),
-  endDate: z.date().min(new Date("1900-01-01"), {
-    message: "date required",
-  }),
-});
+export const InterviewSchema = z
+  .object({
+    hospital: z.string(),
+    dateRange: z.object(
+      {
+        from: z.date(),
+        to: z.date(),
+      },
+      {
+        required_error: "Please select a date range",
+      }
+    ),
+    // endDate: z.date().min(new Date("1900-01-01"), {
+    //   message: "date required",
+    // }),
+  })
+  .refine((data) => data.dateRange.from < data.dateRange.to, {
+    path: ["dateRange"],
+    message: "From date must be before to date",
+  });
