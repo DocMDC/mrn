@@ -3,37 +3,35 @@ import { UserButton } from "@/components/auth/user-button";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { LoginButton } from "@/components/auth/login-button";
 
 export const PublicNavbar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="bg-secondary flex justify-between items-center p-4 rounded-xl w-[600px] shadow-sm">
-      {/* Need to implement unprotected facing landing page and navbar */}
-      {/* <div className="flex gap-x-2">
-        <Button
-          asChild
-          variant={pathname === "/server" ? "default" : "outline"}
-        >
-          <Link href="/server">Server</Link>
-        </Button>
-        <Button
-          asChild
-          variant={pathname === "/client" ? "default" : "outline"}
-        >
-          <Link href="/client">Client</Link>
-        </Button>
-        <Button asChild variant={pathname === "/admin" ? "default" : "outline"}>
-          <Link href="/admin">Admin</Link>
-        </Button>
-        <Button
-          asChild
-          variant={pathname === "/settings" ? "default" : "outline"}
-        >
-          <Link href="/settings">Settings</Link>
-        </Button>
+    <div className="fixed top-0 left-0 right-0 h-12 bg-white flex items-center">
+      <div className="flex w-full px-4">
+        <div className="mr-auto flex items-center justify-center">
+          <Button asChild>
+            <Link
+              className="bg-black text-white px-2 rounded-md cursor-pointer"
+              href="/"
+            >
+              MRN
+            </Link>
+          </Button>
+        </div>
+
+        <LoginButton asChild>
+          <Button
+            variant="secondary"
+            size={"lg"}
+            className="hover:bg-slate-200"
+          >
+            Sign in
+          </Button>
+        </LoginButton>
       </div>
-      <UserButton /> */}
     </div>
   );
 };

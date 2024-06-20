@@ -70,3 +70,15 @@ export const RegisterSchema = z.object({
     message: "Name is required",
   }),
 });
+
+export const InterviewSchema = z.object({
+  hospital: z.string(),
+  startDate: z.optional(
+    z.date().min(new Date("1900-01-01"), {
+      message: "date required",
+    })
+  ),
+  endDate: z.date().min(new Date("1900-01-01"), {
+    message: "date required",
+  }),
+});
